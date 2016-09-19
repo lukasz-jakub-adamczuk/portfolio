@@ -1,0 +1,42 @@
+body {
+  font: normal 100%/1.4 'Open Sans', 'Lucida Grande', sans-serif;
+  color: #aaa;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  // color: $text-main-color;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+  width: 100%;
+}
+
+body {
+  // width: 960px;
+  height: 1000px;
+  // margin: 0 auto;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-width: 0 1px;
+}
+
+.images {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+.images li {
+  display: inline-block;
+  width: 320px;
+  height: 180px;
+}
+.images img {
+  width: 100%;
+  height: 100%;
+} 

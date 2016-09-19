@@ -1,0 +1,57 @@
+/* tablet */
+@media (min-width: 640px) and (max-width: 959px) {
+  body {
+    border-top: 1em solid #0f0;
+  }
+
+  .container {
+    padding: 24px calc(50% - (640px / 2));
+  }
+
+  [class^="col"] {
+    padding: 2px;
+  }
+
+
+  // gallery
+  .gallery > img {
+    float: left;
+    width: 208px;
+    height: 142px;
+    margin: 2px;
+  }
+  .gallery .main-img {
+    width: 420px;
+    height: 288px;
+  }
+
+
+  // pagination
+  .pagination {
+    clear: left;
+  }
+
+
+  // projects
+  .projects .inner,
+  .popular .inner {
+    margin: 0 4px 24px;
+  }
+
+
+  // footer
+  footer {
+    font-size: 0;
+  }
+  footer .col-md-3 {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    padding: 0;
+    font-size: 1rem;
+  }
+  footer .inner {
+    margin: 0 4px 24px;
+  }
+
+}

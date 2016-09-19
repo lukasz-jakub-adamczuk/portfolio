@@ -1,0 +1,26 @@
+{
+  "name": "recital",
+  "version": "1.0.0",
+  "description": "Practice example for HTML5, CSS3, Sass, Gulp, npm inspired with Recital theme",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukasz-jakub-adamczuk/recital.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukasz-jakub-adamczuk/recital/issues"
+  },
+  "homepage": "https://github.com/lukasz-jakub-adamczuk/recital#readme"
+}

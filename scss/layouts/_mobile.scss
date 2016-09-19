@@ -1,0 +1,21 @@
+/* mobile */
+@media (max-width: 659px) {
+  body {
+  	border-top: 1em solid red;
+  }
+
+  .container {
+    padding: 24px calc(50% - 160px);
+  }
+
+
+  // gallery
+  .gallery > img {
+    width: 50%;
+    // border: 1px solid #aaa;
+  }
+  .gallery .main-img {
+    width: 100%;
+  }
+
+}

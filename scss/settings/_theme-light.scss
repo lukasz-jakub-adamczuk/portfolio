@@ -1,0 +1,21 @@
+$main-brand-color:             #31AC97;
+$main-dark-color:              #3a3446;
+$main-dark-light-color:        #494158;
+
+
+$text-main-color:              $main-dark-light-color;
+$text-sub-color:               #aaa;
+
+
+$header-background-color:      #fff;
+$content-background-color:     #fff;
+$projects-background-color:    $main-dark-light-color;
+$popular-background-color:     $main-brand-color;
+$footer-background-color:      $main-dark-light-color;
+$copyright-background-color:   $main-brand-color;
+
+$pagination-background-color:   #eee;
+
+header {
+    border-bottom: 1em solid #aaa;
+}
