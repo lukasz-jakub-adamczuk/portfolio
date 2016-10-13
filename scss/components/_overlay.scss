@@ -27,18 +27,32 @@
   width: 100%;
 }
 
-// #overlay:target {
-  // display: block;
-// }
-
-
-div a {
-
+#overlay:target {
+  display: block;
 }
 
-div > a {
-
+.modal-prev,
+.modal-next,
+.modal-close {
+  padding: 1em 2em;
+  border-radius: .25em;
+  background: #bada55;
+  color: #fff;
 }
-div>a {
 
+.modal-prev {
+  position: absolute;
+  top: 50%;
+  left: 1em;
+}
+.modal-next {
+  position: absolute;
+  top: 50%;
+  right: 1em;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1em;
+  right: 1em;
 }

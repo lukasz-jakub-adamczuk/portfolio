@@ -1,10 +1,11 @@
-// @import 'settings/theme-dark.scss';
+// @import 'vendor/bootstrap.css';
 
-@import 'core/base.scss';
+@import 'core/base';
 
-// @import 'layouts/mobile.scss';
-// @import 'layouts/tablet.scss';
-// @import 'layouts/desktop.scss';
+// @import 'layouts/mobile';
+// @import 'layouts/tablet';
+// @import 'layouts/desktop';
 
+// @import 'button';
 
-@import 'components/overlay.scss';
+// @import 'components/overlay';
