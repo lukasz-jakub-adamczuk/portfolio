@@ -1,21 +1,24 @@
 /* mobile */
 @media (max-width: 659px) {
   body {
-  	border-top: 1em solid red;
+  	// border-top: 1em solid red;
+  }
+  article {
+    margin: 1rem;
   }
 
-  .container {
-    padding: 24px calc(50% - 160px);
+  .project {
+    // border: 1px solid #0f0;
+    flex-wrap: wrap;
+    .name {
+      flex-basis: 100%;
+      height: auto;
+    }
+    .description {
+      flex-basis: 100%;
+    }
+    .image {
+      flex-basis: 100%;
+    }
   }
-
-
-  // gallery
-  .gallery > img {
-    width: 50%;
-    // border: 1px solid #aaa;
-  }
-  .gallery .main-img {
-    width: 100%;
-  }
-
 }

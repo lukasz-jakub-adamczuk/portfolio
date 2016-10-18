@@ -13,32 +13,107 @@ a {
   display: table;
   width: 100%; }
 
+* {
+  box-sizing: border-box; }
+
 h1 {
+  display: none;
   font-size: 4em;
   margin: 5.5em auto;
   text-align: center; }
 
 article {
-  margin: 2em;
-  padding: 2em;
-  background: #aaa;
-  border-top: .5em solid #888; }
+  margin: 2rem; }
 
-article a {
+p {
+  margin-top: 0; }
+
+.description {
+  margin: 0;
+  padding: 1rem;
+  background: #bbb; }
+
+h2 {
+  margin: 0;
+  padding: 1rem;
+  background: #ddd; }
+
+img {
+  background: #888; }
+
+.project {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   color: #000; }
 
-article img {
+.project > * {
+  height: 240px;
+  opacity: 0; }
+
+.project img {
   width: auto;
-  height: 360px;
-  flex-basis: 45%;
+  flex-basis: 50%;
+  flex-basis: 40%;
   order: 3; }
 
-article h2 {
-  flex-basis: 15%;
+.project .name {
   order: 1; }
 
-article p {
+.project .description {
+  overflow: hidden;
   flex-basis: 30%;
+  flex-basis: 40%;
   order: 2; }
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  color: #000; }
+
+.gallery > * {
+  flex-basis: 33.33%;
+  flex-basis: 25%;
+  height: 240px; }
+
+/* mobile */
+@media (max-width: 659px) {
+  article {
+    margin: 1rem; }
+  .project {
+    flex-wrap: wrap; }
+    .project .name {
+      flex-basis: 100%;
+      height: auto; }
+    .project .description {
+      flex-basis: 100%; }
+    .project .image {
+      flex-basis: 100%; } }
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 959px) {
+  .project {
+    flex-wrap: wrap; }
+    .project .name {
+      flex-basis: 100%;
+      height: auto; }
+    .project .description {
+      flex-basis: 50%; }
+    .project .image {
+      flex-basis: 50%; } }
+
+/* desktop */
+@media (min-width: 960px) {
+  .project {
+    flex-wrap: wrap; }
+    .project .name {
+      flex-basis: 20%; }
+    .project .description {
+      flex-basis: 40%; }
+    .project .image {
+      flex-basis: 40%; }
+  .gallery .name {
+    flex-basis: 33%; }
+  .gallery .description {
+    flex-basis: 33%; }
+  .gallery .image {
+    flex-basis: 33%; } }

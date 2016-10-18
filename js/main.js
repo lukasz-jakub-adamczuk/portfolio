@@ -3,46 +3,76 @@ console.log('js is ready...');
 $(document).ready(function() {
   console.log('domcontentloaded...');
 
-
-  // $('img').hide();
-
-
-  var showingImages = function() {
-    $('img').show();
+  var isPage = function(name) {
+    return document.location.pathname.indexOf(name) !== -1;
   };
 
-  var hidingImages = function() {
-    $('img').hide();
-  };
 
-  var show = $('.show-images');
+  // index page
+  $.getJSON('data/projects.json')
+  .done(function(data) {
+    var json = data,
+        projects = '',
+        items = '',
+        item = '';
 
-  show.click(showingImages);
+    // fetch projects
+    if (isPage('index')) {
+      $.each(data, function(idx, itm) {
+        projects += '<article>'
+                  + '    <a href="project.html#' + idx + '" class="project">'
+                  + '        <h2 class="name">' + itm.name + '</h2>'
+                  + '        <div class="description">' + itm.desc + '</div>'
+                  + '        <img src="' + itm.images[0] + '" class="image">'
+                  + '    </a>'
+                  + '</article>';
+      });
 
-  $('.hide-images').click(function() {
-    $('img').hide();
+      $('section').html(projects);
+
+      items = $('.project > *');
+    }
+
+    if (isPage('project')) {
+      var project = document.location.hash.substr(1),
+          itm = data[project];
+
+      var imgs = '';
+      $.each(itm.images, function(i, img) {
+        imgs += '        <img src="' + img + '" class="image">';
+      });
+
+      item += '<article class="project gallery">'
+          + '        <h2 class="name">' + itm.name + '</h2>'
+          + '        <div class="description">' + itm.desc + '</div>'
+          + imgs
+          + '</article>';
+
+      $('section').html(item);
+
+      items = $('article > *');
+    }
+
+    // fade in tiles
+    $(items).each(function(idx, itm) {
+      setTimeout(function() {
+        $(itm).animate({
+          opacity: 1
+        }, 250);
+      }, idx * 250);
+    });
+    
+  })
+  .fail(function(error) {
+    console.log(error);
   });
 
 
-  $('.toggle').click(function() {
-    var gallery = $(this).next();
 
-    $(this).next().fadeToggle();
 
-    //gowno
-    // if (gallery.is(':visible')) {
-    //   $(this).next().fadeOut();
-    // } else {
-    //   $(gallery).fadeIn();
-    // }
-  });
-
-  $('.gallery').fadeOut();
 
 
   $('.images a').on('click', function(event) {
-    // console.log('image click...')
-
     var current = $(this).find('img').eq(0).attr('src');
 
     $('.modal-content img').attr('src', current);
@@ -61,17 +91,7 @@ $(document).ready(function() {
     } else {
       $('.modal-next').hide();
     }
-
-    // console.log(prev.length);
-    // console.log(next.length);
   });
-
-
-  // if () {
-  //   ....
-  // }
-
-
 
   $('.modal-prev').on('click', function() {
     // $('.modal-content img').attr('src', $(this).attr('data-src'));
@@ -117,10 +137,5 @@ $(window).keyup(function(event) {
       break;
   }
 
-
-
-
-  
-  // console.log(window.location.href);
 
 });
