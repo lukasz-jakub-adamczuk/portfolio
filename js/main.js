@@ -1,10 +1,12 @@
-console.log('js is ready...');
-
 $(document).ready(function() {
-  console.log('domcontentloaded...');
 
   var isPage = function(name) {
-    return document.location.pathname.indexOf(name) !== -1;
+    if (name == 'index' && document.location.pathname.indexOf('.html') == -1) {
+      // main page
+      return true;
+    } else {
+      return document.location.pathname.indexOf(name) !== -1;
+    }
   };
 
   var getRandomInt = function(min, max) {
@@ -25,17 +27,14 @@ $(document).ready(function() {
 
     // fetch projects
     if (isPage('index')) {
+      // console.log('index');
       $.each(data, function(idx, itm) {
-        // var color = getRandomInt(0, colors.length);
         projects += '<article style="background: ' + colors[getRandomInt(0, colors.length)] + ';">'
                   + '    <a href="page.html#' + idx + '" class="page project">'
-                  // + '        <h2 class="name-box light">' + itm.name + '</h2>'
-                  // + '        <div class="text-box normal">' + itm.text + '</div>'
                   + (itm.name ? '        <h2 class="name-box light">' + itm.name + '</h2>' : '')
                   + (itm.text ? '        <div class="text-box normal">' + itm.text + '</div>' : '')
                   + (itm.images ? '        <div class="image-box dark"><img src="' + itm.images[0] + '"></div>' : '')
                   + (itm.tiles ? '        <div class="text-box dark">' + itm.tiles[1].text + '</div>' + '<div class="image-box dark"><img src="' + itm.tiles[0].image + '"></div>' : '')
-                  // + '        <div class="image-box"><img src="' + itm.images[0] + '"></div>'
                   + '    </a>'
                   + '</article>';
       });
@@ -46,54 +45,64 @@ $(document).ready(function() {
     }
 
     if (isPage('page')) {
-      var project = document.location.hash.substr(1),
+      // console.log('page');
+      var project = null,
           tiles = '',
           color = '',
           imgs = '',
-          itm = data[project];
+          itm = '';
 
       color = colors[getRandomInt(0, colors.length)];
-
-      // images processing
-      $.each(itm.images, function(i, img) {
-        imgs += '        <div class="image-box dark"><img src="' + img + '"></div>';
-      });
-
-      // tiles processing
-      if (itm.tiles) {
-        $.each(itm.tiles, function(i, val) {
-          if (val.text) {
-            tiles += '    <div class="text-box normal">' + val.text + '</div>';
-          }
-          if (val.image) {
-            tiles += '    <div class="image-box dark"><img src="' + val.image + '"></div>';
-          }
-          if (val.contact && itm.meta) {
-            tiles += '    <div class="text-box light">'
-                  + (itm.meta.email ? '      <p>' + itm.meta.email.label + ' <b>' + itm.meta.email.value + '</b></p>' : '')
-                  + (itm.meta.phone ? '      <p>' + itm.meta.phone.label + ' <b>' + itm.meta.phone.value + '</b></p>' : '')
-                  + (itm.meta.website ? '      <p>' + itm.meta.website.label + ' <b>' + itm.meta.website.value + '</b></p>' : '')
-                  + '    </div>';
-          }
-        });
+      if (document.location.hash) {
+        project = document.location.hash.substr(1);
       }
 
-      // finalize
-      item += '<article class="page project gallery' + (itm.tiles ? ' tiles' : '') + '" style="background: ' + color + ';">'
-          + (itm.name ? '        <h2 class="name-box light">' + itm.name + '</h2>' : '')
-          + (itm.text ? '        <div class="text-box normal">' + itm.text + '</div>' : '')
-          + imgs
-          + tiles
-          + '</article>';
+      itm = data[project];
+
+      if (project && itm) {
+        // images processing
+        if (itm.images) {
+          $.each(itm.images, function(i, img) {
+            imgs += '        <div class="image-box dark"><img src="' + img + '"></div>';
+          });
+        }
+
+        // tiles processing
+        if (itm.tiles) {
+          $.each(itm.tiles, function(i, val) {
+            if (val.text) {
+              tiles += '    <div class="text-box normal">' + val.text + '</div>';
+            }
+            if (val.image) {
+              tiles += '    <div class="image-box dark"><img src="' + val.image + '"></div>';
+            }
+            if (val.contact && itm.meta) {
+              tiles += '    <div class="text-box light">'
+                    + (itm.meta.email ? '      <p>' + itm.meta.email.label + ' <b>' + itm.meta.email.value + '</b></p>' : '')
+                    + (itm.meta.phone ? '      <p>' + itm.meta.phone.label + ' <b>' + itm.meta.phone.value + '</b></p>' : '')
+                    + (itm.meta.website ? '      <p>' + itm.meta.website.label + ' <b>' + itm.meta.website.value + '</b></p>' : '')
+                    + '    </div>';
+            }
+          });
+        }
+
+        // finalize
+        item += '<article class="page project gallery' + (itm.tiles ? ' tiles' : '') + '" style="background: ' + color + ';">'
+            + (itm.name ? '        <h2 class="name-box light">' + itm.name + '</h2>' : '')
+            + (itm.text ? '        <div class="text-box normal">' + itm.text + '</div>' : '')
+            + imgs
+            + tiles
+            + '</article>';
+      }
 
       $('section').html(item);
 
       items = $('article > *');
     }
 
-    if (isPage('contact')) {
-      items = $('article > *');
-    }
+    // if (isPage('contact')) {
+    //   items = $('article > *');
+    // }
 
     // fade in tiles
     $(items).each(function(idx, itm) {
