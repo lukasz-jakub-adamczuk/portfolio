@@ -1,17 +1,67 @@
 {
   "project1": {
     "name": "First Project",
-    "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+    "text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
     "images": ["img/img-2.jpg", "img/img-3.jpg", "img/img-4.jpg", "img/img-5.jpg"]
   },
   "project2": {
     "name": "Another Project Title",
-    "desc": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
     "images": ["img/img-6.jpg", "img/img-7.jpg", "img/img-8.jpg"]
   },
   "third-awesome-project": {
     "name": "Third Awesome Project",
-    "desc": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-    "images": ["img/img-6.jpg", "img/img-2.jpg", "img/img-7.jpg", "img/img-4.jpg", "img/img-8.jpg","img/img-6.jpg", "img/img-3.jpg"]
+    "text": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+    "images": ["img/img-3.jpg", "img/img-6.jpg", "img/img-2.jpg", "img/img-7.jpg", "img/img-4.jpg", "img/img-8.jpg","img/img-6.jpg", "img/img-3.jpg"]
+  },
+  "project4": {
+    "name": "More and More!!!",
+    "text": "<p>Lorem ipsum... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "images": ["img/img-1.jpg", "img/img-3.jpg", "img/img-2.jpg", "img/img-7.jpg", "img/img-4.jpg", "img/img-6.jpg", "img/img-7.jpg", "img/img-8.jpg"]
+  },
+  "project5": {
+    "name": "5th Avenue Long Title",
+    "text": "<p>Excepteur sint occaecat cupidatat non proident. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+    "images": ["img/img-3.jpg", "img/img-6.jpg", "img/img-8.jpg","img/img-6.jpg", "img/img-3.jpg"]
+  },
+  "about": {
+    "name": "About me",
+    "meta": {
+      "email": {
+        "label": "Email:",
+        "value": "john.doe@gmail.com"
+      },
+      "phone": {
+        "label": "Phone:",
+        "value": "+48 500 500 500"
+      },
+      "website": {
+        "label": "Website:",
+        "value": "johndoe.com"
+      }
+    },
+    "tiles": [
+      {
+        "image": "img/about/person-image-1.jpg"
+      },
+      {
+        "text": "<p>First description. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+      },
+      {
+        "image": "img/about/person-image-2.jpg"
+      },
+      {
+        "text": "<p>Second description. Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+      },
+      {
+        "contact": "meta"
+      },
+      {
+        "text": "<p>Third description. Ut enim ad cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+      },
+      {
+        "image": "img/about/person-image-3.jpg"
+      }
+    ]
   }
 }

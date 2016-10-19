@@ -1,29 +1,59 @@
 /* desktop */
 // @media (min-width: 1025px) {
 @media (min-width: 960px) {
-  .project {
-    flex-wrap: wrap;
-    .name {
+  body {
+    // border-top: 1em solid #17f;
+  }
+  .page > * {
+    height: 240px;
+  }
+  .page {
+    // display: flex;
+    // flex-wrap: wrap;
+    .name-box {
       flex-basis: 20%;
       // height: auto;
     }
-    .description {
+    .text-box {
       flex-basis: 40%;
     }
-    .image {
+    .image-box {
       flex-basis: 40%;
     }
   }
 
   .gallery {
-    .name {
-      flex-basis: 33%;
+    .name-box {
+      flex-basis: 33.33%;
+      // flex-grow: 1;
     }
-    .description {
-      flex-basis: 33%;
+    .text-box {
+      flex-basis: 33.33%;
+      // flex-grow: 1;
     }
-    .image {
-      flex-basis: 33%;
+    .image-box {
+      flex-basis: 33.33%;
+      // flex-grow: 1;
     }
+  }
+  .gallery > * {
+    // flex-grow: 1;
+  }
+}
+
+@media (min-width: 1440px) {
+  body {
+    font: normal 140%/1.4 'Open Sans', 'Lucida Grande', sans-serif;
+  }
+  .page > * {
+    height: 360px;
+  }
+}
+@media (min-width: 1920px) {
+  body {
+    font: normal 160%/1.4 'Open Sans', 'Lucida Grande', sans-serif;
+  }
+  .page > * {
+    height: 480px;
   }
 }

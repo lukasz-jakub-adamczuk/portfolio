@@ -1,24 +1,49 @@
-/* mobile */
-@media (max-width: 659px) {
+// mobile portrait
+@media (max-width: 639px) {
   body {
-  	// border-top: 1em solid red;
+  	// border-top: 1em solid maroon;
   }
-  article {
-    margin: 1rem;
-  }
+  // article {
+  //   margin: 1rem;
+  // }
 
-  .project {
-    // border: 1px solid #0f0;
-    flex-wrap: wrap;
-    .name {
+  .page {
+    // display: flex;
+    // flex-wrap: wrap;
+    .name-box {
       flex-basis: 100%;
       height: auto;
     }
-    .description {
+    .text-box {
       flex-basis: 100%;
     }
-    .image {
+    .image-box {
       flex-basis: 100%;
+    }
+  }
+}
+// mobile landscape, small tablet
+@media (min-width: 480px) and (max-width: 767px) {
+  body {
+    // border-top: 1em solid red;
+  }
+  article {
+    // margin: 1rem;
+  }
+
+  .page {
+    // border: 1px solid #0f0;
+    // display: flex;
+    // flex-wrap: wrap;
+    .name-box {
+      flex-basis: 100%;
+      height: auto;
+    }
+    .text-box {
+      flex-basis: 50%;
+    }
+    .image-box {
+      flex-basis: 50%;
     }
   }
 }

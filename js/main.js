@@ -7,6 +7,13 @@ $(document).ready(function() {
     return document.location.pathname.indexOf(name) !== -1;
   };
 
+  var getRandomInt = function(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
+
+  var colors = ['crimson', 'darkseagreen', 'lightslategrey', 'olivedrab', 'seagreen', 'skyblue', 'slategrey', 'steelblue', 'teal', 'tomato', 'wheat', 'yellowgreen'];
 
   // index page
   $.getJSON('data/projects.json')
@@ -19,11 +26,16 @@ $(document).ready(function() {
     // fetch projects
     if (isPage('index')) {
       $.each(data, function(idx, itm) {
-        projects += '<article>'
-                  + '    <a href="project.html#' + idx + '" class="project">'
-                  + '        <h2 class="name">' + itm.name + '</h2>'
-                  + '        <div class="description">' + itm.desc + '</div>'
-                  + '        <img src="' + itm.images[0] + '" class="image">'
+        // var color = getRandomInt(0, colors.length);
+        projects += '<article style="background: ' + colors[getRandomInt(0, colors.length)] + ';">'
+                  + '    <a href="page.html#' + idx + '" class="page project">'
+                  // + '        <h2 class="name-box light">' + itm.name + '</h2>'
+                  // + '        <div class="text-box normal">' + itm.text + '</div>'
+                  + (itm.name ? '        <h2 class="name-box light">' + itm.name + '</h2>' : '')
+                  + (itm.text ? '        <div class="text-box normal">' + itm.text + '</div>' : '')
+                  + (itm.images ? '        <div class="image-box dark"><img src="' + itm.images[0] + '"></div>' : '')
+                  + (itm.tiles ? '        <div class="text-box dark">' + itm.tiles[1].text + '</div>' + '<div class="image-box dark"><img src="' + itm.tiles[0].image + '"></div>' : '')
+                  // + '        <div class="image-box"><img src="' + itm.images[0] + '"></div>'
                   + '    </a>'
                   + '</article>';
       });
@@ -33,23 +45,53 @@ $(document).ready(function() {
       items = $('.project > *');
     }
 
-    if (isPage('project')) {
+    if (isPage('page')) {
       var project = document.location.hash.substr(1),
+          tiles = '',
+          color = '',
+          imgs = '',
           itm = data[project];
 
-      var imgs = '';
+      color = colors[getRandomInt(0, colors.length)];
+
+      // images processing
       $.each(itm.images, function(i, img) {
-        imgs += '        <img src="' + img + '" class="image">';
+        imgs += '        <div class="image-box dark"><img src="' + img + '"></div>';
       });
 
-      item += '<article class="project gallery">'
-          + '        <h2 class="name">' + itm.name + '</h2>'
-          + '        <div class="description">' + itm.desc + '</div>'
+      // tiles processing
+      if (itm.tiles) {
+        $.each(itm.tiles, function(i, val) {
+          if (val.text) {
+            tiles += '    <div class="text-box normal">' + val.text + '</div>';
+          }
+          if (val.image) {
+            tiles += '    <div class="image-box dark"><img src="' + val.image + '"></div>';
+          }
+          if (val.contact && itm.meta) {
+            tiles += '    <div class="text-box light">'
+                  + (itm.meta.email ? '      <p>' + itm.meta.email.label + ' <b>' + itm.meta.email.value + '</b></p>' : '')
+                  + (itm.meta.phone ? '      <p>' + itm.meta.phone.label + ' <b>' + itm.meta.phone.value + '</b></p>' : '')
+                  + (itm.meta.website ? '      <p>' + itm.meta.website.label + ' <b>' + itm.meta.website.value + '</b></p>' : '')
+                  + '    </div>';
+          }
+        });
+      }
+
+      // finalize
+      item += '<article class="page project gallery' + (itm.tiles ? ' tiles' : '') + '" style="background: ' + color + ';">'
+          + (itm.name ? '        <h2 class="name-box light">' + itm.name + '</h2>' : '')
+          + (itm.text ? '        <div class="text-box normal">' + itm.text + '</div>' : '')
           + imgs
+          + tiles
           + '</article>';
 
       $('section').html(item);
 
+      items = $('article > *');
+    }
+
+    if (isPage('contact')) {
       items = $('article > *');
     }
 

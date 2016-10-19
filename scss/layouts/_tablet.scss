@@ -1,17 +1,43 @@
 /* tablet */
 @media (min-width: 768px) and (max-width: 959px) {
-  .project {
+  body {
+    // border-top: 1em solid #080;
+  }
+  .page > * {
+    height: 240px;
+  }
+  .page {
     // border: 1px solid #0f0;
-    flex-wrap: wrap;
-    .name {
+    // flex-wrap: wrap;
+    // justify-content: flex-start;
+    .name-box {
       flex-basis: 100%;
       height: auto;
     }
-    .description {
+    .text-box {
       flex-basis: 50%;
     }
-    .image {
+    .image-box {
       flex-basis: 50%;
     }
   }
+
+  .contact {
+    // flex-wrap: wrap;
+    // justify-content: flex-start;
+    .name-box {
+      flex-basis: 50%;
+      // height: auto;
+      order: 1;
+    }
+    .text-box {
+      flex-basis: 50%;
+      order: 1;
+    }
+    .image-box {
+      flex-basis: 50%;
+      order: 1;
+    }
+  }
+
 }
