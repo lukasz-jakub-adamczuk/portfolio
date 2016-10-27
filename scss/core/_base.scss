@@ -1,3 +1,5 @@
+// @charset utf-8;
+
 body {
   font: normal 100%/1.4 'Open Sans', 'Lucida Grande', sans-serif;
   // color: #aaa;
@@ -30,19 +32,69 @@ body {
   box-sizing: border-box;
 }
 
-h1 {
-  display: none;
-  font-size: 4em;
-  margin: 5.5em auto;
-  text-align: center;
-}
-
 article {
-  margin: 2rem;
+  margin-bottom: 2rem;
 }
 
 p {
   margin-top: 0;
+}
+
+.introduction {
+  background: #eee;
+  padding: 25vh 0 10vh;
+  text-align: center;
+  header {
+    margin-bottom: 20vh;
+    h1 {
+      margin: 0;
+      font-size: 16vh;
+      line-height: 20vh;
+      color: #444;
+    }
+    h2 {
+      margin: 0;
+      font-size: 6vh;
+      line-height: 15vh;
+      font-weight: normal;
+      color: #888;
+    }
+  }
+  p {
+    font-size: 3vh;
+    line-height: 10vh;
+    margin: 0;
+    color: #aaa;
+  }
+  p:after {
+    // content: '↓';
+    content: '';
+    color: #000;
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 10px auto;
+    border: 4px solid #444;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 100 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  50% {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+}
+
+.projects {
+  padding: 0 2rem;
+  border-top: 2rem solid #fff;
 }
 
 .name-box {

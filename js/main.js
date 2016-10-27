@@ -39,7 +39,7 @@ $(document).ready(function() {
                   + '</article>';
       });
 
-      $('section').html(projects);
+      $('.projects').html(projects);
 
       items = $('.project > *');
     }
@@ -95,7 +95,7 @@ $(document).ready(function() {
             + '</article>';
       }
 
-      $('section').html(item);
+      $('.projects').html(item);
 
       items = $('article > *');
     }
